@@ -1,4 +1,4 @@
-package com.signature.moviedb.view;
+package com.signature.moviedb.view.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 

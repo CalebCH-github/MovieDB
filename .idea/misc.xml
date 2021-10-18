@@ -4,9 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Caleb/AndroidStudioProjects/MovieDB/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/Caleb/AndroidStudioProjects/MovieDB/app/src/main/res/layout/activity_main_menu.xml" value="0.209375" />
         <entry key="..\:/Users/Caleb/AndroidStudioProjects/MovieDB/app/src/main/res/layout/activity_movie_details.xml" value="0.209375" />
         <entry key="..\:/Users/Caleb/AndroidStudioProjects/MovieDB/app/src/main/res/layout/activity_now_playing.xml" value="0.209375" />
         <entry key="..\:/Users/Caleb/AndroidStudioProjects/MovieDB/app/src/main/res/layout/card_now_playing.xml" value="0.25" />
+        <entry key="..\:/Users/Caleb/AndroidStudioProjects/MovieDB/app/src/main/res/layout/fragment_now_playing.xml" value="0.209375" />
+        <entry key="..\:/Users/Caleb/AndroidStudioProjects/MovieDB/app/src/main/res/layout/fragment_upcoming.xml" value="0.209375" />
+        <entry key="..\:/Users/Caleb/AndroidStudioProjects/MovieDB/app/src/main/res/menu/main_menu.xml" value="0.2037037037037037" />
       </map>
     </option>
   </component>

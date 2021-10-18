@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_menu"
+    app:startDestination="@id/nowPlayingFragment">
+
+    <fragment
+        android:id="@+id/nowPlayingFragment"
+        android:name="com.signature.moviedb.view.fragments.NowPlayingFragment"
+        android:label="Now Playing"
+        tools:layout="@layout/fragment_now_playing" />
+    <fragment
+        android:id="@+id/upcomingFragment"
+        android:name="com.signature.moviedb.view.fragments.UpcomingFragment"
+        android:label="Upcoming"
+        tools:layout="@layout/fragment_upcoming" />
+</navigation>

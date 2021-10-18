@@ -18,10 +18,8 @@ import com.signature.moviedb.helper.Const;
 import com.signature.moviedb.model.Movies;
 import com.signature.moviedb.model.NowPlaying;
 import com.signature.moviedb.model.Reviews;
-import com.signature.moviedb.view.MainActivity;
-import com.signature.moviedb.view.MovieDetailsActivity;
+import com.signature.moviedb.view.activities.MovieDetailsActivity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class NowPlayingAdapter extends RecyclerView.Adapter<NowPlayingAdapter.CardViewViewHolder> {
