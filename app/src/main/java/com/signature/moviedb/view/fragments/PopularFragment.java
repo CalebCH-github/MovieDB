@@ -14,8 +14,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.signature.moviedb.R;
+import com.signature.moviedb.adapter.PopularAdapter;
 import com.signature.moviedb.adapter.UpcomingAdapter;
 import com.signature.moviedb.helper.ItemClickSupport;
+import com.signature.moviedb.model.Popular;
 import com.signature.moviedb.model.Upcoming;
 import com.signature.moviedb.viewmodel.MovieViewModel;
 
@@ -23,10 +25,10 @@ import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link UpcomingFragment#newInstance} factory method to
+ * Use the {@link PopularFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class UpcomingFragment extends Fragment {
+public class PopularFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -37,7 +39,7 @@ public class UpcomingFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public UpcomingFragment() {
+    public PopularFragment() {
         // Required empty public constructor
     }
 
@@ -47,11 +49,11 @@ public class UpcomingFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment UpcomingFragment.
+     * @return A new instance of fragment PopularFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static UpcomingFragment newInstance(String param1, String param2) {
-        UpcomingFragment fragment = new UpcomingFragment();
+    public static PopularFragment newInstance(String param1, String param2) {
+        PopularFragment fragment = new PopularFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -68,44 +70,45 @@ public class UpcomingFragment extends Fragment {
         }
     }
 
-    private RecyclerView rv_upcoming;
+    private RecyclerView rv_popular;
     private MovieViewModel viewModel;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_upcoming, container, false);
+        View view = inflater.inflate(R.layout.fragment_popular, container, false);
 
-        rv_upcoming = view.findViewById(R.id.rv_upcoming_fragment);
+        rv_popular = view.findViewById(R.id.rv_popular_fragment);
         viewModel = new ViewModelProvider(getActivity()).get(MovieViewModel.class);
-        viewModel.getUpcoming();
-        viewModel.getResultUpcoming().observe(getActivity(), showUpcoming);
+        viewModel.getPopular();
+        viewModel.getResultPopular().observe(getActivity(), showPopular);
 
         return view;
+
     }
 
-    private Observer<Upcoming> showUpcoming = new Observer<Upcoming>() {
+    private Observer<Popular> showPopular = new Observer<Popular>() {
         @Override
-        public void onChanged(Upcoming upcoming) {
-            rv_upcoming.setLayoutManager(new LinearLayoutManager(getActivity()));
-            UpcomingAdapter adapter = new UpcomingAdapter(getActivity());
-            adapter.setListUpcoming((ArrayList<Upcoming.Results>) upcoming.getResults());
-            rv_upcoming.setAdapter(adapter);
+        public void onChanged(Popular popular) {
+            rv_popular.setLayoutManager(new LinearLayoutManager(getActivity()));
+            PopularAdapter adapter = new PopularAdapter((getActivity()));
+            adapter.setListPopular((ArrayList<Popular.Results>) popular.getResults());
+            rv_popular.setAdapter(adapter);
 
-            ItemClickSupport.addTo(rv_upcoming).setOnItemLongClickListener(new ItemClickSupport.OnItemLongClickListener() {
+            ItemClickSupport.addTo(rv_popular).setOnItemLongClickListener(new ItemClickSupport.OnItemLongClickListener() {
                 @Override
                 public boolean onItemLongClicked(RecyclerView recyclerView, int position, View v) {
                     return false;
                 }
             });
 
-            ItemClickSupport.addTo(rv_upcoming).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
+            ItemClickSupport.addTo(rv_popular).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
                 @Override
                 public void onItemClicked(RecyclerView recyclerView, int position, View v) {
                     Bundle bundle = new Bundle();
-                    bundle.putString("movieId", ""+upcoming.getResults().get(position).getId());
-                    Navigation.findNavController(v).navigate(R.id.action_upcomingFragment_to_MovieDetailsFragment);
+                    bundle.putString("movieId", ""+popular.getResults().get(position).getId());
+                    Navigation.findNavController(v).navigate(R.id.action_popularFragment_to_MovieDetailsFragment);
                 }
             });
 

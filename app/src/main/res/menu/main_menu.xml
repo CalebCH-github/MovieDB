@@ -9,4 +9,8 @@
         android:id="@+id/upcomingFragment"
         android:icon="@drawable/ic_upcoming2_24"
         android:title="Upcoming" />
+    <item
+        android:id="@+id/popularFragment"
+        android:icon="@drawable/ic_baseline_trending_up_24"
+        android:title="Popular" />
 </menu>

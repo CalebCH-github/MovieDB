@@ -9,6 +9,8 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.signature.moviedb.model.Movies;
 import com.signature.moviedb.model.NowPlaying;
+import com.signature.moviedb.model.Popular;
+import com.signature.moviedb.model.Upcoming;
 import com.signature.moviedb.repositories.MovieRepository;
 
 public class MovieViewModel extends AndroidViewModel {
@@ -30,6 +32,16 @@ public class MovieViewModel extends AndroidViewModel {
     }
     //==End of viewmodel get movie by id
 
+    //==Begin of viewmodel get movieelements
+//    private MutableLiveData<Movies> resultGetMovieelements = new MutableLiveData<>();
+//    public void getMovieelements(){
+//        resultGetMovieelements = repository.getMovieDataelements();
+//    }
+//    public LiveData<Movies> gete
+//
+//    }
+    //End of viewmodel get movieelements
+
     //==Begin of viewmodel get now playing
 
     private MutableLiveData<NowPlaying> resultGetNowPlaying = new MutableLiveData<>();
@@ -42,5 +54,17 @@ public class MovieViewModel extends AndroidViewModel {
 
     //==End of viewmodel get now playing
 
+    //==Begin of viewmodel get upcoming
 
+    private MutableLiveData<Upcoming> resultGetUpcoming = new MutableLiveData<>();
+    public void getUpcoming() { resultGetUpcoming = repository.getUpcomingData(); }
+    public LiveData<Upcoming> getResultUpcoming() { return resultGetUpcoming; }
+    //== End of viewmodel get upcoming
+
+
+    //==Begin of viewmodel get popular
+    private MutableLiveData<Popular> resultGetPopular = new MutableLiveData<>();
+    public void getPopular() { resultGetPopular = repository.getPopularData(); }
+    public LiveData<Popular> getResultPopular() { return resultGetPopular; }
+    //== End of viewmodel get popular
 }
