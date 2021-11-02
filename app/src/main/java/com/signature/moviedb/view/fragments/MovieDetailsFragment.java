@@ -1,6 +1,7 @@
 package com.signature.moviedb.view.fragments;
 
 import android.app.ProgressDialog;
+import android.content.ClipData;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,12 +15,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.signature.moviedb.R;
 import com.signature.moviedb.adapter.RV_GenresAdapter;
 import com.signature.moviedb.adapter.RV_ProComAdapter;
 import com.signature.moviedb.helper.Const;
+import com.signature.moviedb.helper.ItemClickSupport;
 import com.signature.moviedb.model.Movies;
 import com.signature.moviedb.viewmodel.MovieViewModel;
 
@@ -165,6 +168,13 @@ public class MovieDetailsFragment extends Fragment {
             rv_genre.setAdapter(adapter);
             rv_procom.setAdapter(adapterpc);
             //^ WHY IS MY LOGO NOT SHOWING?!
+            ItemClickSupport.addTo(rv_procom).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
+                @Override
+                public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+                    Toast.makeText(getContext(), movies.getProduction_companies().get(position).getName(),
+                            Toast.LENGTH_SHORT).show();
+                }
+            });
 
             //loading + progress bar
             dialog.dismiss();

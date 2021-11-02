@@ -41,7 +41,12 @@ public class RV_GenresAdapter extends RecyclerView.Adapter<RV_GenresAdapter.Text
 
     @Override
     public void onBindViewHolder(@NonNull TextViewholder holder, int position) {
-        holder.lbl_rv_genres.setText(genres.get(position).getName());
+        if (position == genres.size()-1){
+            holder.lbl_rv_genres.setText(genres.get(position).getName());
+        }else {
+            holder.lbl_rv_genres.setText(genres.get(position).getName() + " , ");
+        }
+
     }
 
     @Override

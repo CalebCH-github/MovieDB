@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -44,9 +45,13 @@ public class RV_ProComAdapter extends RecyclerView.Adapter<RV_ProComAdapter.Logo
 
     @Override
     public void onBindViewHolder(@NonNull LogoViewholder holder, int position) {
-        Glide.with(context)
-                .load(Const.IMG_URL + productionCompanies.get(position))
-                .into(holder.logos);
+        if (productionCompanies.get(position).getLogo_path() == null){
+            holder.logos.setImageResource(R.drawable.ic_baseline_broken_image_24);
+        }else{
+            Glide.with(context)
+                    .load(Const.IMG_URL + productionCompanies.get(position).getLogo_path())
+                    .into(holder.logos);
+        }
     }
 
     @Override

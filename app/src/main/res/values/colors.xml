@@ -11,5 +11,6 @@
     <color name="red">#630000</color>
     <color name="darkblue">#06174C</color>
     <color name="lightblue">#5877DA</color>
+    <color name="darkgreen">#515700</color>
     <color name="cardBGteal">#548878</color>
 </resources>

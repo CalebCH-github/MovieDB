@@ -13,13 +13,16 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@color/darkgreen">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_production_companies"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
                 android:layout_marginBottom="32dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -30,7 +33,7 @@
                 android:id="@+id/backdrop_film_movie_details_fragment"
                 android:layout_width="360dp"
                 android:layout_height="300dp"
-                android:alpha="0.5"
+                android:alpha="0.7"
                 android:src="@drawable/ic_baseline_image_24"
                 android:translationZ="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
